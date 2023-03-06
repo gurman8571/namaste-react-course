@@ -1,0 +1,28 @@
+join in array of
+config driven ui
+why map
+
+virtual dom->
+
+<head></head>
+<body>
+  <ret1></ret1>  
+  <ret2></ret2>
+</body>
+<Footer></Footer>
+
+virtual dom->we keep a repreentation of a dom in our code 
+
+why we need?
+to perform reconsoledation
+reconseliation->algo that react uses to find diff between dom and virtual dom and find out what need to be updated and update only that small portion  
+done by diff algo
+
+wh reat is fast?
+because it uses virtual dom 
+
+why keys?
+to identify vuniquely by react what to re render
+
+
+react fiber

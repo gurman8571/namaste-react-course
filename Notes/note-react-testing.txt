@@ -1,0 +1,44 @@
+testing frameworks ->
+1.enzyme
+2.react teting library
+
+//2.react teting library
+part of a testing library (a library for teitng all js frameworks,library)
+
+//3.jest
+-a delightful js testing frmework
+-react teting library use this
+
+//test driven deveopment->
+  -we write test cases even before we write our code (not followed much in industry)
+   -increase development time
+
+//headless browser
+ -kind of like an actual browserwithout its ui
+ -we can execute test case faster why?
+
+ //developers do unit testing
+
+
+//step-
+1.install react tsting library npm install --save-dev @testing-library/react
+2.install jest (npm i -D jest)
+3.configure jest (npx jest --init)
+4.jest babel config npm i--save-dev  babel-jest @babel/core @babel/preset-env babel help jest to understand js code
+5.babelrc file=  {
+    "presets": [["@babel/preset-env", {"targets": {"node": "current"}}]]
+  }
+  6.install babel preset react to work with jsx in test files (npm install --save-dev @babel/preset-react)
+  7.gitignore coverage
+  8.write test cases
+
+///what is js dom?
+
+
+
+
+// func of  render from testing lib?
+ -render we are running test on jsdom it doesnt have a rootinndex.html so render func create a
+  small browser like thing where we render our compnenet
+
+

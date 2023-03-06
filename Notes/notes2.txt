@@ -1,0 +1,8 @@
+1.never put packagelock.json in gitignore
+
+2.package.lock.json functions->
+2.1.It contains the name, dependencies, and locked version of the
+project. 
+2.2.It describes the exact tree that was generated to allow subsequent installs to have the identical tree.
+
+

@@ -1,0 +1,83 @@
+.swiper-button-next{
+    background-image: url('https://cdn-icons-png.flaticon.com/128/664/664866.png')!important;
+
+    right:1%!important;
+    width: 50px!important;
+    height: 50px!important;
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgb(41 48 63 / 25%);
+    border-radius: 100%!important;
+    text-align: center;
+    cursor: pointer;
+    outline: 0;
+    background-size: 20px !important;
+}
+.swiper-button-prev{
+  background-image: url('https://cdn-icons-png.flaticon.com/128/3183/3183354.png')!important;
+
+  right:20%!important;
+  width: 50px!important;
+  height: 50px!important;
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgb(41 48 63 / 25%);
+  border-radius: 100%!important;
+  text-align: center;
+  cursor: pointer;
+  outline: 0;
+  background-size: 20px !important;
+}
+  
+  .swiper-button-next::after ,.swiper-button-prev::after{
+    display: none;
+  }
+
+
+
+  @media only screen and (max-width: 600px) {
+    .swiper-button-prev,.swiper-button-next{
+      width: 20px!important;
+      height: 20px!important;   
+      top:50%!important;
+      position: relative;
+      background-size: 10px !important;
+    }
+  }
+  .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ring div {
+    box-sizing: border-box;
+   
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    margin: 8px;
+    border: 3px solid gray ;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: gray transparent transparent transparent;
+    
+  }
+  .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+  }
+  .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+  }
+  .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+  }
+  @keyframes lds-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .ice-cream{
+    left:4.6rem
+  }

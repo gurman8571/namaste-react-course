@@ -1,0 +1,14 @@
+1.what is src?
+
+2. ways to export ->
+2.1 export default name of func (only one thing can be  exported) //default import
+2.2 expor const func() =>{} //named import
+
+3.{Header} used in named import
+
+4.config file-contain all hard coded data like base address end points
+
+5.when to use state ?
+when we are using local variables and when the var value needs to be changed i.e when the variable had to re render componenet 
+
+6.state variables->

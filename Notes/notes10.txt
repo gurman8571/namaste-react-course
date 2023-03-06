@@ -1,0 +1,28 @@
+steps of react in this videos
+
+state vs prop ->
+
+sate->container to store data local store variable
+
+prop->value passed from one comp from one component to another
+
+how to pass props in outlet body
+
+//imp
+if we make tate in children then children have their control over state and each child have its own state
+lifting the state up->if we make the stae in parent then parent have control over that state
+means aking control of states from children is lifting state up
+//
+
+steps to creta e context
+1.create context file in create conext in utils folder
+2.use it where you want 
+3.to use use hook called usecontext 
+4.in class comp use <{Contextname}.consumer value={user}>
+5.now if you want to update  value use <{Contextname}.provider value=""}
+
+//imp
+A component calling useContext will always re-render when the context value changes.
+
+
+ui layer data layer 

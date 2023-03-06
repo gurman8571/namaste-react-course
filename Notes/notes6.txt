@@ -1,0 +1,13 @@
+1.what is curly braces import?
+
+
+2.why normal var nt work in react and state var work?
+ans->it calls the diff algo and compare virtual dom  tree with prev dom tree and upate that node and this happens very fast this process is called reconsolidation. 
+
+3.when we change state variable react re render that whole componenet with updated state value.
+
+4.microservices->
+when we are building a big app instead of having just one project we have small small diff projects eg notificION PROJECT, API PROJECTS, ui in diff project.
+
+5.useffect hook=
+used to perform taks which we need to do acc to state i.e dependent on state 

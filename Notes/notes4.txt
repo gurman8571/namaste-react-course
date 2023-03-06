@@ -1,0 +1,17 @@
+1.Babel
+const head= <h1 class="blue">hi</h1> 
+->(babel)->React.createlement(h1,{class:"blue""},"hi")
+
+gives browser compatible Js as jsx is not understanded by browser
+
+Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript
+
+uyse polyfill for methods not available before ecma script we are using 
+eg if we are using  fun x  but browser use es5 so bable convert 
+
+2.Jsx
+JSX is an XML-like syntax extension to ECMAScript without any defined semantics. It's NOT intended to be implemented 
+by engines or browsers.
+
+
+3.why there is always a parent in react

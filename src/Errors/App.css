@@ -1,0 +1,87 @@
+.nDVxx {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+._3vspF {
+    min-height: calc(100vh - 229px);
+   
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.hFjjz {
+    text-align: center;
+    width: 430px;
+    line-height: 1.25;
+    padding: 120px 0;
+}
+._1lyfX {
+    background-image: url(https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/connection_error_bsppck);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 260px;
+}
+._3Ognu {
+    
+    font-size: 32px;
+    font-weight: 600;
+    margin: 30px 0 10px;
+}
+._1CN4Y {
+    color: #93959f;
+    font-size: 16px;
+}
+._35xiX {
+    width: 100%;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    line-height: 50px;
+    font-size: 14px;
+    height: 50px;
+    padding: 0 2rem;
+    color: #fc8019;
+    letter-spacing: 0;
+    color: #fff;
+    background-color: #fc8019;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 12%);
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    width: auto;
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+}
+
+.styles_itemIcon__1LXTw {
+    font-size: 1rem;
+    vertical-align: middle;
+    margin-top: -2px;
+    display: inline-block;
+}
+
+.styles_iconVeg__shLxJ {
+    color: #0f8a65;
+}
+
+.styles_icon__m6Ujp {
+    color: #e43b4f;
+    font-size: .8rem;
+}
+
+.styles_iconVeg__shLxJ {
+    color: #0f8a65;
+}
+
+.styles_icon__m6Ujp {
+    color: #e43b4f;
+    font-size: .8rem;
+}
