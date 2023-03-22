@@ -20,16 +20,18 @@ const Instamart=lazy(() => import('./componenets/Instamart/Body'));
 const AppLayout = () => {
 
     const [user, setUser] = useState({  name: "Gurman", email: "gurma381@gmail.com"  });
-  
+    
+    const [showSidebar, setshowSidebar] = useState(false)
+
    return (
     <Provider store={Store}>
 <React.Fragment>
       <Usercontext.Provider
-        value={user}
+        value={user} 
       >
         {/*wrappimng whole wrap in context*/}
-        <Header />
-        <Outlet />
+        <Header setshowSidebar={setshowSidebar} showSidebar={showSidebar} />
+        <Outlet context={{ showSidebar:showSidebar }}  />
         <Footer />
       </Usercontext.Provider>
     </React.Fragment>
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/support", element: <Help /> },
       { path: "/Faq", element: <FAQ /> },
-      { path: "/", element: <Body /> },
+      { path: "/", element: <Body   /> },
       {
         path: "resturant/:id",
         element: <ResturantDetail />,

@@ -1,14 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
+
 import { Link } from "react-router-dom";
-import Usercontext from "../utils/Usercontext";
-import { useSelector } from "react-redux";
-export default function Header() {
-  const  user  = useContext(Usercontext);
+
+import { useDispatch, useSelector } from "react-redux";
+import {logout} from '../utils/UserSlice'
+import SideDrawer from "./SideDrawer";
+
+
+export default function Header({showSidebar,setshowSidebar}) {
+  
+const dispatch=useDispatch();
+
   const cartitems=useSelector((store)=>store.cart.items)
-  console.log(cartitems);
+  const [showmenu, setshowmenu] = useState(false)
+  const user=useSelector((store)=>store.user.items);
+  console.log(user);
+ 
   return (
-    <nav className="fixed z-50 w-full bg-white top-0 flex flex-wrap items-center justify-between px-2 py-3 shadow-lg">
-      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+    
+<>
+
+    <nav 
+    
+    className='fixed z-50 w-full bg-white top-0 flex flex-wrap items-center justify-between px-2 py-3 shadow-lg '>
+{showSidebar && <SideDrawer  setshowSidebar={setshowSidebar}/>}    
+      <div className={`container px-4 mx-auto flex flex-wrap items-center justify-between ${showSidebar? `opacity-40`:''}`}>
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <a href="/" title="Swiggy">
             <svg viewBox="0 0 559 825" height="49" width="34" fill="#fc8019" data-testid="logo">
@@ -90,12 +106,9 @@ export default function Header() {
                 <span className="ml-2 hover:text-yellow-500">FAQ's</span>
               </Link>
             </li>
-
-            <li className="nav-item hover:text-yellow-500">
-              <Link
-                to="/support"
-                className="px-3 py-2 flex items-center text-xs uppercase font-bold text-slate-700 hover:text-slate-500"
-              >
+{!user?
+            <li className="nav-item hover:text-yellow-500 cursor-pointer" onClick={()=>{setshowSidebar(true)}}>
+            <span className="px-3 py-2 flex items-center text-xs uppercase font-bold text-slate-700 hover:text-slate-500">
                 {" "}
                 <svg
                   className="_1GTCc"
@@ -106,9 +119,54 @@ export default function Header() {
                 >
                   <path d="M11.9923172,11.2463768 C8.81761115,11.2463768 6.24400341,8.72878961 6.24400341,5.62318841 C6.24400341,2.5175872 8.81761115,0 11.9923172,0 C15.1670232,0 17.740631,2.5175872 17.740631,5.62318841 C17.740631,8.72878961 15.1670232,11.2463768 11.9923172,11.2463768 Z M11.9923172,9.27536232 C14.0542397,9.27536232 15.7257581,7.64022836 15.7257581,5.62318841 C15.7257581,3.60614845 14.0542397,1.97101449 11.9923172,1.97101449 C9.93039471,1.97101449 8.25887628,3.60614845 8.25887628,5.62318841 C8.25887628,7.64022836 9.93039471,9.27536232 11.9923172,9.27536232 Z M24,24 L0,24 L1.21786143,19.7101449 L2.38352552,15.6939891 C2.85911209,14.0398226 4.59284263,12.7536232 6.3530098,12.7536232 L17.6316246,12.7536232 C19.3874139,12.7536232 21.1256928,14.0404157 21.6011089,15.6939891 L22.9903494,20.5259906 C23.0204168,20.63057 23.0450458,20.7352884 23.0641579,20.8398867 L24,24 Z M21.1127477,21.3339312 L21.0851024,21.2122487 C21.0772161,21.1630075 21.0658093,21.1120821 21.0507301,21.0596341 L19.6614896,16.2276325 C19.4305871,15.4245164 18.4851476,14.7246377 17.6316246,14.7246377 L6.3530098,14.7246377 C5.4959645,14.7246377 4.55444948,15.4231177 4.32314478,16.2276325 L2.75521062,21.6811594 L2.65068631,22.0289855 L21.3185825,22.0289855 L21.1127477,21.3339312 Z" />
                 </svg>
-                <span className="ml-2 hover:text-yellow-500">{user.name} </span>
-              </Link>
-            </li>
+                <span className="ml-2 hover:text-yellow-500">Login </span>
+                </span>
+            </li>: <li onMouseEnter={()=>setshowmenu(true)}  className="nav-item hover:text-yellow-500 cursor-pointer">
+            <span className="px-3 py-2 flex items-center text-xs uppercase font-bold text-slate-700 hover:text-slate-500">
+                {" "}
+                <svg
+                  className="_1GTCc"
+                  viewBox="6 0 12 24"
+                  height={19}
+                  width={18}
+                  fill="#686b78"
+                >
+                  <path d="M11.9923172,11.2463768 C8.81761115,11.2463768 6.24400341,8.72878961 6.24400341,5.62318841 C6.24400341,2.5175872 8.81761115,0 11.9923172,0 C15.1670232,0 17.740631,2.5175872 17.740631,5.62318841 C17.740631,8.72878961 15.1670232,11.2463768 11.9923172,11.2463768 Z M11.9923172,9.27536232 C14.0542397,9.27536232 15.7257581,7.64022836 15.7257581,5.62318841 C15.7257581,3.60614845 14.0542397,1.97101449 11.9923172,1.97101449 C9.93039471,1.97101449 8.25887628,3.60614845 8.25887628,5.62318841 C8.25887628,7.64022836 9.93039471,9.27536232 11.9923172,9.27536232 Z M24,24 L0,24 L1.21786143,19.7101449 L2.38352552,15.6939891 C2.85911209,14.0398226 4.59284263,12.7536232 6.3530098,12.7536232 L17.6316246,12.7536232 C19.3874139,12.7536232 21.1256928,14.0404157 21.6011089,15.6939891 L22.9903494,20.5259906 C23.0204168,20.63057 23.0450458,20.7352884 23.0641579,20.8398867 L24,24 Z M21.1127477,21.3339312 L21.0851024,21.2122487 C21.0772161,21.1630075 21.0658093,21.1120821 21.0507301,21.0596341 L19.6614896,16.2276325 C19.4305871,15.4245164 18.4851476,14.7246377 17.6316246,14.7246377 L6.3530098,14.7246377 C5.4959645,14.7246377 4.55444948,15.4231177 4.32314478,16.2276325 L2.75521062,21.6811594 L2.65068631,22.0289855 L21.3185825,22.0289855 L21.1127477,21.3339312 Z" />
+                </svg>
+                <span className="ml-2 hover:text-yellow-500">{user.name}</span>
+                </span>
+                {/* Dropdown menu */}
+  <div
+
+    id="dropdownNavbar"
+    onMouseLeave={()=>setshowmenu(false)}
+    className={ `z-10 ${showmenu?`absolute`:`hidden` }  font-normal bg-white shadow-lg w-48 mt-4 border-yellow-400 border-t-4 mr-24`}
+  >
+    <ul
+      className="py-2 text-sm text-gray-700 dark:text-gray-400"
+      aria-labelledby="dropdownLargeButton"
+    >
+      <li>
+        <a
+          href="#"
+          className="block px-6 text-md py-2 cursor-pointer dark:hover:text-white"
+        >
+          Profile
+        </a>
+      </li>
+     
+      <li>
+        <span
+         onClick={()=>{dispatch(logout())}}
+          className="block px-6 text-md py-2 dark:hover:text-white"
+        >
+         Logout
+        </span>
+      </li>
+    </ul>
+  
+  </div>
+            </li>}
             <li className="nav-item hover:text-yellow-500">
               <a
                 className="download-button px-3 py-2 flex items-center text-xs uppercase font-bold  hover:text-slate-500"
@@ -134,6 +192,11 @@ export default function Header() {
                 <span className="ml-2">Cart({cartitems.length})</span>
               </a>
             </li>
+            <li>
+
+ 
+</li>
+
             <li className="nav-item hover:text-yellow-500">
             <Link
               to="/instamart"
@@ -165,5 +228,7 @@ export default function Header() {
         </div>
       </div>
     </nav>
+    
+    </>
   );
 }

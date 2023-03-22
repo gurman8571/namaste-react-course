@@ -1,23 +1,80 @@
-import React from 'react'
+import React, { useState } from 'react'
+import {login} from "../utils/UserSlice"
+import {useDispatch} from 'react-redux'
 
-export default function SideDrawer() {
+export default function SideDrawer({setshowSidebar}) {
+  //onst [showSidebar, setShowSidebar] = useState(true);
+const dispatch=useDispatch();
+const [name, setname] = useState("");
+const [email, setemail] = useState("")
+
+const Handlesubmit=(e)=>{ e.preventDefault();
+  dispatch(login({name:name,email:email}))
+  setshowSidebar(false)}
   return (
-    <div>
-        {/* drawer init and toggle */}
-        
-        {/* drawer component */}
-        <div id="drawer-example" className=" pt-24 fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabIndex={-1} aria-labelledby="drawer-label">
-          <h5 id="drawer-label" className="inline-flex items-center mb-4 text-base font-semibold text-gray-500 dark:text-gray-400"><svg className="w-5 h-5 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" /></svg>Info</h5>
-          <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
-            <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
-            <span className="sr-only">Close menu</span>
+    <div className="flex space-x-2" >
+    
+    <div >
+      
+      <div
+     
+        className="fixed top-0 right-0     fixed min-h-screen z-40   p-12 flex w-1/3 max-w-full -translate-x-full flex-col border-none bg-white bg-clip-padding text-neutral-700 shadow-sm outline-none transition duration-300 ease-in-out dark:bg-neutral-800 dark:text-neutral-200 [&[data-te-offcanvas-show]]:transform-none"
+        tabIndex={-1}
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+        data-te-offcanvas-init=""
+      >
+          <button
+            type="button"
+             onClick={()=>{setshowSidebar(false)}}
+            className="box-content px-2 rounded-none border-none opacity-50 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+            data-te-offcanvas-dismiss=""
+          >
+            <span className="w-[1em] focus:opacity-100 disabled:pointer-events-none disabled:select-none disabled:opacity-25 [&.disabled]:pointer-events-none [&.disabled]:select-none [&.disabled]:opacity-25">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </span>
           </button>
-          <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">Supercharge your hiring by taking advantage of our <a href="#" className="text-blue-600 underline dark:text-blue-500 hover:no-underline">limited-time sale</a> for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.</p>
-          <div className="grid grid-cols-2 gap-4">
-            <a href="#" className="px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Learn more</a>
-            <a href="#" className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Get access <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg></a>
-          </div>
+        <div className="flex items-center justify-between p-4">
+          <h5
+            className="mb-0  text-3xl font-extrabold leading-normal "
+           
+            id="offcanvasExampleLabel"
+          >
+           Login
+          </h5>
+
+          <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/Image-login_btpq7r" className='w-16 rounded-full'/>
+        
+        </div>
+        <div className="flex-grow overflow-y-auto p-4">
+          <form onSubmit={Handlesubmit}>
+          <input type="text"  onChange={(e)=>{setname(e.target.value)}} className='w-80 px-4 py-4 border border-gray-200 my-4' placeholder='Username'/>
+           
+            <input type="text"  onChange={(e)=>{setemail(e.target.value)}} className='w-80 px-4 py-4 border border-gray-200' placeholder='Email'/>
+ 
+               <button className='w-80 py-4 border font-bold border-white bg-yellow-400 my-4 text-white' 
+               type="submit"
+               style={{backgroundColor:'#fc8019'}} >Login</button>
+               <p className='text-xs'>By clicking on Login, I accept the Terms & Conditions</p>
+          </form>
+          
         </div>
       </div>
+    </div>
+  </div>
+  
   )
 }

@@ -42,7 +42,7 @@ p-4
 
 {cartitems.map((item,i)=>{
   //let sum=0;
-  sum+=item.price*item.quantity;
+  sum+=(item.price?item.price:item.defaultPrice?.toString().substring(0, 3))*item.quantity;
   return(
   <div key={i} className="flex m-2
 p-4 mx-2
@@ -68,7 +68,7 @@ p-4 mx-2
 <div className="w-1/2">
   </div>
 <div className=" text-sm w-1/4 px-8 py-1 text-gray-500">₹
-{(item?.price/100)*item.quantity}
+{(item.price? item?.price/100:item.defaultPrice?.toString().substring(0, 3))*item.quantity}
 </div>
   </div>
   

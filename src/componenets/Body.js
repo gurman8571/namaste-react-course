@@ -2,11 +2,12 @@ import React from "react";
 import { useState, useEffect } from "react";
 import ResturantCard from "./ResturantCard";
 import Skeleton from "../skeletons/card";
-import Search from "./Search";
-import SideDrawer from "./SideDrawer";
 import axios from "axios";
 import Craousel from "./Craousel";
+import { useOutletContext } from "react-router-dom";
+
 export default function Body() {
+  const {showSidebar}=useOutletContext();
   const [resturant, setresturant] = useState([]);
   const [offers, setoffers] = useState([]);
   const [loading, setloading] = useState(true);
@@ -14,10 +15,14 @@ export default function Body() {
   const [cloading, setcloading] = useState(true);
   const [filtered, setfiltered] = useState([]);
   const [search, setsearch] = useState("");
+ 
+   
 
-console.log('hlo');
 
-   //console.log(search);
+    //const [filtered, setfiltered] = useState(second)
+   //console.log('hlo');
+
+ 
    
   const fetchdata = async () => {
 
@@ -26,6 +31,7 @@ console.log('hlo');
     );
 
     setresturant(data?.data?.data?.cards[2]?.data?.data?.cards);
+    setfiltered(data?.data?.data?.cards[2]?.data?.data?.cards);
     setoffers(data?.data?.data?.cards[0].data?.data?.cards);
  
     setloading(false);
@@ -40,23 +46,29 @@ console.log('hlo');
   }, []);
 
   const onsearch = () => {
+    if (search === '') {
+      setfiltered(resturant);
+    }
     const filter= resturant?.filter((item)=>
     item?.data?.name?.toLowerCase().includes(search.toLowerCase())
    
    );
    setfiltered(filter);
    console.log(filtered);
-   //setresturant(filtered)
+   setresturant(filtered)
      };
 
   return (
     
-    <section className="text-gray-600 body-font">
+    <section className={ showSidebar? 'text-gray-600   body-font opacity-40 ':'text-gray-600   body-font'}
       
-      <Craousel offers={offers} loading={cloading} setloading={setcloading} />
+      
+      >
+      
+      <Craousel offers={offers} loading={cloading} setloading={setloading} />
       <div className="relative text-gray-600  flex justify-center">
       <input
-        onChange={(e)=>{search=e.target.value}}
+        onChange={(e)=>{setsearch(e.target.value)}}
         value={search}
         type="search"
         name="serch"
@@ -94,8 +106,8 @@ console.log('hlo');
             </div>
           </div>
         ) : (
-          <div className="lg:flex md:flex flex-wrap lg:px-12">
-            {resturant.map((item, i) => {
+          <div className="lg:flex md:flex flex-wrap ">
+            {filtered?.map((item, i) => {
               return <ResturantCard item={item} key={i} />;
             })}
           </div>
